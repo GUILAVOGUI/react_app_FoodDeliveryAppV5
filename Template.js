@@ -5,8 +5,7 @@ import {
     StyleSheet,
     Dimensions
 } from 'react-native';
-import { Icon } from 'react-native-elements';
-import { colors, parameters } from './src/global/styles';
+
 
 
 const Template = () => {
@@ -15,10 +14,6 @@ const Template = () => {
         <View  >
 
             <Text>Template</Text>
-
-
-
-
         </View>
     )
 }
