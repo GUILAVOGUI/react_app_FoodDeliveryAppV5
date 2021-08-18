@@ -9,6 +9,10 @@ import SignInScreen from '../screens/authScreens/SignInScreen';
 import SignInWelcomeScreen from '../screens/authScreens/SignInWelcomeScreen';
 import HomeScreen from '../screens/HomeScreen';
 
+import RootClientTabs from './ClientTabs';
+import RestaurantMapScreen from '../screens/RestaurantsMapScreen';
+import DrawerNavigator from './DrawerNavigator';
+
 const AuthStack = createStackNavigator();
 
 
@@ -37,6 +41,24 @@ const AuthStackNav = () => {
             <AuthStack.Screen
                 name="HomeScreen"
                 component={HomeScreen}
+                options={{
+                    headerShown: false,
+                    ...TransitionPresets.RevealFromBottomAndroid
+                }}
+            />
+
+            <AuthStack.Screen
+                name="DrawerNavigator"
+                component={DrawerNavigator}
+                options={{
+                    headerShown: false,
+                    ...TransitionPresets.RevealFromBottomAndroid
+                }}
+            />
+
+            <AuthStack.Screen
+                name="RestaurantMapScreen"
+                component={RestaurantMapScreen}
                 options={{
                     headerShown: false,
                     ...TransitionPresets.RevealFromBottomAndroid

@@ -3,7 +3,7 @@ import {
     View,
     Text,
     StyleSheet,
-    Dimensions
+    Dimensions, FlatList
 } from 'react-native';
 import { Icon, withBadge } from 'react-native-elements';
 
@@ -15,6 +15,7 @@ import HomeScreen from '../screens/HomeScreen';
 const HomeHeader = () => {
 
     const BadgeIcon = withBadge(0)(Icon)
+
 
     return (
         <View style={styles.header} >
@@ -47,6 +48,7 @@ const HomeHeader = () => {
                 />
 
             </View>
+
 
 
         </View>

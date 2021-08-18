@@ -5,17 +5,23 @@ import {
     StyleSheet,
     Dimensions,
     TouchableOpacity,
-    ScrollView
+    ScrollView,
+    Pressable,
+    FlatList, Image
 } from 'react-native';
 import { Icon } from 'react-native-elements';
 import HomeHeader from '../components/HomeHeader';
 
 import { colors } from '../global/styles';
+import { filterData } from '../global/Data';
+import { color } from 'react-native-elements/dist/helpers';
+
 
 
 
 const HomeScreen = () => {
-    const [delivery, setDelivery] = useState(true)
+    const [delivery, setDelivery] = useState(true);
+    const [indexCheck, setIndexCheck] = useState("0")
 
     return (
         <View style={styles.container} >
@@ -117,6 +123,50 @@ const HomeScreen = () => {
                     </Text>
                 </View>
 
+                <View>
+                    <FlatList
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}
+                        data={filterData}
+                        keyExtractor={(item) => item.id}
+                        extraData={indexCheck}
+                        renderItem={({ item, index }) => (
+                            <Pressable
+                                onPress={() => {
+                                    setIndexCheck(item.id)
+                                }}
+                            >
+
+                                <View style={indexCheck === item.id ?
+                                    { ...styles.smallCardSelected } : { ...styles.smallCard }} >
+                                    <Image
+                                        style={{
+                                            height: 60,
+                                            width: 60, borderRadius: 30
+                                        }}
+                                        source={item.image}
+                                    />
+                                    <View>
+                                        <Text style={indexCheck === item.id ?
+                                            { ...styles.smallCardTextSected } :
+                                            { ...styles.smallCardText }
+                                        }>
+                                            {item.name}
+                                        </Text>
+                                    </View>
+                                </View>
+
+                            </Pressable>
+                        )}
+                    />
+                </View>
+
+                <View style={styles.headerTextView}>
+                    <Text style={styles.headerText}>
+                        Free delivery now
+                    </Text>
+                </View>
+
 
             </ScrollView>
 
@@ -128,55 +178,101 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
-    },
-    deliveryBtn: {
-        paddingHorizontal: 20,
-        borderRadius: 15,
-        paddingVertical: 5,
+        flex: 1,
+
 
     },
+    deliveryButton: {
+        paddingHorizontal: 20,
+        borderRadius: 15,
+        paddingVertical: 5
+    },
+
     deliveryText: {
         marginLeft: 5,
-        fontSize: 16,
+        fontSize: 16
     },
+
     filterView: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-evenly",
         marginHorizontal: 10,
-        marginVertical: 20
+        marginVertical: 10
     },
+
     clockView: {
-        flexDirection: 'row',
-        backgroundColor: colors.cardBackground,
+        flexDirection: "row",
         alignItems: 'center',
         marginLeft: 20,
-        borderRadius: 15,
-        paddingHorizontal: 7,
+        backgroundColor: colors.cardbackground,
+        borderRadius: 20,
+        paddingRight: 10,
+        paddingHorizontal: 5,
         marginRight: 20
     },
     addressView: {
-        flexDirection: 'row',
-        alignItems: 'center',
+        flexDirection: "row",
         backgroundColor: colors.grey5,
         borderRadius: 15,
-        paddingHorizontal: 33,
-        paddingVertical: 7,
-        justifyContent: "space-between"
+        paddingVertical: 3,
+        justifyContent: "space-between",
+        paddingHorizontal: 20
     },
+
     headerText: {
         color: colors.grey2,
-        fontSize: 22,
-        fontWeight: 'bold',
+        fontSize: 24,
+        fontWeight: "bold",
         paddingLeft: 10,
-
     },
     headerTextView: {
         backgroundColor: colors.grey5,
-        paddingVertical: 3
+        paddingVertical: 3,
+    },
+
+    smallCard: {
+        borderRadius: 30,
+        backgroundColor: colors.grey5,
+        justifyContent: "center",
+        alignItems: 'center',
+        padding: 5,
+        width: 80,
+        margin: 10,
+        height: 100
+    },
+
+    smallCardSelected: {
+        borderRadius: 30,
+        backgroundColor: colors.buttons,
+        justifyContent: "center",
+        alignItems: 'center',
+        padding: 5,
+        width: 80,
+        margin: 10,
+        height: 100
+    },
+
+    smallCardTextSected: {
+        fontWeight: "bold",
+        color: colors.cardbackground
+    },
+
+    smallCardText: {
+        fontWeight: "bold",
+        color: colors.grey2
+    },
+
+    floatButton: {
+        position: 'absolute',
+        bottom: 10, right: 15,
+        backgroundColor: 'white',
+        elevation: 10,
+        width: 60, height: 60,
+        borderRadius: 30,
+        alignItems: 'center'
     }
+
 
 })
 

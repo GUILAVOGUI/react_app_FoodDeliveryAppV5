@@ -10,7 +10,7 @@ export const colors = {
     card: "white",
     statusbar: '#ff8c52',
     headerText: 'white',
-    cardBackground: 'white',
+    cardbackground: 'white',
     background2: '#ff8c52',
 
 
