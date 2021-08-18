@@ -39,8 +39,8 @@ const AuthStackNav = () => {
             />
 
             <AuthStack.Screen
-                name="HomeScreen"
-                component={HomeScreen}
+                name="RootClientTabs"
+                component={RootClientTabs}
                 options={{
                     headerShown: false,
                     ...TransitionPresets.RevealFromBottomAndroid

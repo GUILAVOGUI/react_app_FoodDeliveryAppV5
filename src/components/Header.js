@@ -20,7 +20,7 @@ export default function Header({ title, type, navigation }) {
                 <Icon
                     type='material-community'
                     name={type}
-                    color={colors.headerText}
+                    color={colors.cardbackground}
                     size={28}
                     onPress={() => {
                         navigation.goBack()
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
 
     },
     headerText: {
-        color: colors.headerText,
+        color: colors.cardbackground,
         fontSize: 22,
         fontWeight: "bold",
         marginLeft: 30

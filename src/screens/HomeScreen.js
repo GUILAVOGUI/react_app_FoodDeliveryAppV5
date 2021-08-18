@@ -23,7 +23,7 @@ import FoodCard from '../components/FoodCard'
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     const [delivery, setDelivery] = useState(true);
     const [indexCheck, setIndexCheck] = useState("0")
 
@@ -61,6 +61,7 @@ const HomeScreen = () => {
                         <TouchableOpacity
                             onPress={() => {
                                 setDelivery(false)
+                                navigation.navigate("RestaurantMapScreen")
                             }}
                         >
                             <View
@@ -265,6 +266,26 @@ const HomeScreen = () => {
 
 
             </ScrollView>
+
+            {delivery &&
+                <View style={styles.floatButton}>
+                    <TouchableOpacity
+                        onPress={() => {
+                            navigation.navigate('RestaurantMapScreen')
+                        }}
+                    >
+
+                        <Icon
+                            name="place"
+                            type="material"
+                            size={32}
+                            color={colors.buttons}
+                        />
+
+                        <Text style={{ color: colors.grey2 }}>Map</Text>
+                    </TouchableOpacity>
+                </View>
+            }
 
 
         </View>
