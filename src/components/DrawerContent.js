@@ -40,7 +40,7 @@ export default function DrawerContent(props) {
                             rounded
                             avatarStyle={styles.avatar}
                             size={75}
-                            source={{ uri: "https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png" }}
+                            source={{ uri: "https://media-exp1.licdn.com/dms/image/C5603AQH_0TuDiZhEWg/profile-displayphoto-shrink_200_200/0/1628088226466?e=1633564800&v=beta&t=WevlqVFsjXbuQFOyEoL-HBmDxBgjdWZbr1wNqZrv-Lk" }}
                         />
 
                         <View style={{ marginLeft: 10 }}>

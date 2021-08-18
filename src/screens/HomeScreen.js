@@ -65,6 +65,8 @@ const HomeScreen = ({ navigation }) => {
                             onPress={() => {
                                 setDelivery(false)
                                 navigation.navigate("RestaurantMapScreen")
+                                setDelivery(true)
+
                             }}
                         >
                             <View
