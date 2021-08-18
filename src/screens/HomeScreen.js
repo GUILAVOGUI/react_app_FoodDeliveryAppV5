@@ -27,9 +27,12 @@ const HomeScreen = ({ navigation }) => {
     const [delivery, setDelivery] = useState(true);
     const [indexCheck, setIndexCheck] = useState("0")
 
+
+
+
     return (
         <View style={styles.container} >
-            <HomeHeader />
+            <HomeHeader navigation={navigation} />
             <ScrollView
                 stickyHeaderIndices={[0]}
                 showsVerticalScrollIndicator={true}
@@ -74,6 +77,7 @@ const HomeScreen = ({ navigation }) => {
                                 </Text>
                             </View>
                         </TouchableOpacity>
+                        {delivery}
                     </View>
                 </View>
 

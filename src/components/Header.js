@@ -24,6 +24,7 @@ export default function Header({ title, type, navigation }) {
                     size={28}
                     onPress={() => {
                         navigation.goBack()
+
                     }}
                 />
             </View>

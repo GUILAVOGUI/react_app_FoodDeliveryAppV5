@@ -8,8 +8,6 @@ import BusinessConsoleScreen from '../screens/BusinessConsoleScreen';
 import DrawerContent from '../components/DrawerContent';
 
 
-
-
 const Drawer = createDrawerNavigator()
 
 

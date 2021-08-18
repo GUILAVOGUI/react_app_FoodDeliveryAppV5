@@ -38,14 +38,14 @@ const AuthStackNav = () => {
                 }}
             />
 
-            <AuthStack.Screen
+            {/* <AuthStack.Screen
                 name="RootClientTabs"
                 component={RootClientTabs}
                 options={{
                     headerShown: false,
                     ...TransitionPresets.RevealFromBottomAndroid
                 }}
-            />
+            /> */}
 
             <AuthStack.Screen
                 name="DrawerNavigator"

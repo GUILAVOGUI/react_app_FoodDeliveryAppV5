@@ -12,7 +12,7 @@ import HomeScreen from '../screens/HomeScreen';
 
 
 
-const HomeHeader = () => {
+const HomeHeader = ({ navigation }) => {
 
     const BadgeIcon = withBadge(0)(Icon)
 
@@ -27,6 +27,9 @@ const HomeHeader = () => {
                     name="menu"
                     color={colors.cardbackground}
                     size={32}
+                    onPress={() => {
+                        navigation.toggleDrawer()
+                    }}
                 />
 
             </View>
