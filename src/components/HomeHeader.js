@@ -25,14 +25,14 @@ const HomeHeader = () => {
                 <Icon
                     type="material-community"
                     name="menu"
-                    color={colors.cardBackground}
+                    color={colors.cardbackground}
                     size={32}
                 />
 
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                 <Text
-                    style={{ color: colors.cardBackground, fontSize: 19, fontWeight: 'bold' }}
+                    style={{ color: colors.cardbackground, fontSize: 19, fontWeight: 'bold' }}
                 >
                     Express Food App
                 </Text>
@@ -44,7 +44,7 @@ const HomeHeader = () => {
                     type="material-community"
                     name="cart"
                     size={35}
-                    color={colors.cardBackground}
+                    color={colors.cardbackground}
                 />
 
             </View>
