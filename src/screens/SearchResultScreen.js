@@ -12,7 +12,6 @@ const SearchResultScreen = ({ navigation, route }) => {
         <View style={styles.container}>
 
 
-
             <View>
                 <FlatList
                     style={{ backgroundColor: colors.cardbackground }}
