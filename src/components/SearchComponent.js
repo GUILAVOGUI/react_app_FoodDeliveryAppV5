@@ -1,5 +1,9 @@
 import React, { useState, useRef } from 'react'
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Modal, TextInput, FlatList, TouchableOpacity, Keyboard } from 'react-native'
+import {
+    StyleSheet, Text, View, TouchableWithoutFeedback, Modal,
+    TextInput, FlatList, TouchableOpacity,
+    Keyboard, Platform
+} from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
 import { Icon } from 'react-native-elements';
@@ -64,21 +68,27 @@ export default function SearchComponent() {
                                 animation={textInputFossued ? "fadeInRight" : "fadeInLeft"}
                                 duration={400}
                             >
-                                <Icon name={textInputFossued ? "arrow-back" : "search"}
-                                    onPress={() => {
-                                        if (textInputFossued)
-                                            setModalVisible(false)
-                                        setTextInputFossued(true)
-                                    }}
-                                    style={styles.icon2}
-                                    type="material"
-                                    iconStyle={{ marginRight: 5 }}
-                                />
+                                <View style={{ marginHorizontal: 10 }}>
+                                    <Icon name={textInputFossued ? "arrow-back" : "search"}
+                                        onPress={() => {
+                                            if (textInputFossued)
+                                                setModalVisible(false)
+                                            setTextInputFossued(true)
+                                        }}
+                                        style={styles.icon2}
+                                        type="material"
+                                        iconStyle={{ marginRight: 5 }}
+                                    />
+
+                                </View>
+
                             </Animatable.View>
 
                             <TextInput
-                                style={{ width: "90%" }}
-                                placeholder=""
+                                style={{
+                                    width: "90%",
+                                }}
+                                placeholder=" start typing"
                                 autoFocus={false}
                                 ref={textInput}
 
@@ -99,7 +109,7 @@ export default function SearchComponent() {
                             >
                                 <Icon
                                     name={textInputFossued ? "cancel" : null}
-                                    iconStyle={{ color: colors.grey3 }}
+                                    iconStyle={{ color: colors.grey3, paddingHorizontal: 9 }}
                                     type="material"
                                     style={{ marginRight: -10 }}
                                     onPress={() => {
@@ -119,7 +129,8 @@ export default function SearchComponent() {
                                 onPress={() => {
 
                                     Keyboard.dismiss
-                                    navigation.navigate("RestaurantSearchScreen", { item: item.name })
+                                    // navigation.navigate("RestaurantSearchScreen", { item: item.name })
+                                    navigation.navigate("SearchScreen", { item: item.name })
                                     setModalVisible(false)
                                     setTextInputFossued(true)
                                 }} >
@@ -199,10 +210,12 @@ const styles = StyleSheet.create({
     icon2: {
         fontSize: 24,
         padding: 5,
+        marginRight: 10,
         color: colors.grey2,
     },
     modal: {
-        flex: 1
+        flex: 1,
+        marginTop: Platform.OS === 'android' ? 0 : 40,
     }
 
 })

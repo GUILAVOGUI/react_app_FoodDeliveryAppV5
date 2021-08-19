@@ -11,6 +11,7 @@ import HomeScreen from '../screens/HomeScreen';
 
 import RootClientTabs from './ClientTabs';
 import RestaurantMapScreen from '../screens/RestaurantsMapScreen';
+import SearchScreeen from '../screens/SearchScreeen';
 import DrawerNavigator from './DrawerNavigator';
 
 const AuthStack = createStackNavigator();
@@ -64,6 +65,16 @@ const AuthStackNav = () => {
                     ...TransitionPresets.RevealFromBottomAndroid
                 }}
             />
+
+            <AuthStack.Screen
+                name="RestaurantSearchScreen"
+                component={SearchScreeen}
+                options={{
+                    headerShown: false,
+                    ...TransitionPresets.RevealFromBottomAndroid
+                }}
+            />
+            {/*  */}
 
         </AuthStack.Navigator>
 
