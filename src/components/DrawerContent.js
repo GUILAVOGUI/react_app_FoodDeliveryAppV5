@@ -43,9 +43,9 @@ export default function DrawerContent(props) {
                             source={{ uri: "https://media-exp1.licdn.com/dms/image/C5603AQH_0TuDiZhEWg/profile-displayphoto-shrink_200_200/0/1628088226466?e=1633564800&v=beta&t=WevlqVFsjXbuQFOyEoL-HBmDxBgjdWZbr1wNqZrv-Lk" }}
                         />
 
-                        <View style={{ marginLeft: 10 }}>
-                            <Text style={{ fontWeight: 'bold', color: colors.cardbackground, fontSize: 18 }} >John Mark</Text>
-                            <Text style={{ color: colors.cardbackground, fontSize: 14 }} > john@xpressfood.com</Text>
+                        <View style={{ marginLeft: 10, overflow: 'scroll' }}>
+                            <Text style={{ fontWeight: 'bold', color: colors.cardbackground, fontSize: 18 }} > Young Boss </Text>
+                            <Text style={{ color: colors.cardbackground, fontSize: 14, maxWidth: 168 }} >  youngboss@xpressfood.com </Text>
                         </View>
 
                     </View>
