@@ -11,6 +11,7 @@ export const colors = {
     statusbar: "#ff8c52",
     heaherText: "white",
     lightgreen: '#66DF48',
+    black: 'black'
 }
 
 
