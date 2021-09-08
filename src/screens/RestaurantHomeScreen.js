@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, ScrollView, Dimensions, Platform } from 'react-native';
+import {
+    View, Text, StyleSheet, ScrollView, Dimensions, Platform
+    , TouchableOpacity, Modal
+} from 'react-native';
 import { Icon } from 'react-native-elements';
 import { TabView, TabBar } from 'react-native-tab-view';
 
 import RestaurantHeader from './RestaurantHeader'
 import { colors, fonts } from '../global/styles'
-import { restaurantsData } from '../global/Data'
+import { menu, restaurantsData } from '../global/Data'
+import MenuScreen from './RestaurantTabs/MenuScreen';
+import { Route1, Route2, Route3, Route4, Route5, Route6, Route7, Route8 } from './MenuTabs';
+import MenuProductScreen from './MenuProductScreen';
 
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -15,7 +21,7 @@ const initialLayout = SCREEN_WIDTH;
 const RestaurantHomeScrreen = ({ navigation, route }) => {
 
     const { id, restaurant } = route.params;
-
+    // const [routes2] = useState(menu)
     const [routes] = useState([
         { key: 'first', title: 'MENU' },
         { key: 'second', title: 'INFO' },
@@ -24,6 +30,7 @@ const RestaurantHomeScrreen = ({ navigation, route }) => {
     ])
 
     const [index, setIndex] = useState(0);
+    // const [modalVisible, setModalVisible] = useState(false);
 
     const renderTabBar = props => (
         <TabBar
@@ -39,6 +46,8 @@ const RestaurantHomeScrreen = ({ navigation, route }) => {
         />
     )
 
+
+
     const UpdateRoute1 = () => {
         return (
             <View>
@@ -49,6 +58,11 @@ const RestaurantHomeScrreen = ({ navigation, route }) => {
             </View>
         )
     }
+
+    const menuPressed = () => {
+        navigation.navigate(MenuProductScreen)
+    }
+
 
 
     return (
@@ -130,7 +144,31 @@ const RestaurantHomeScrreen = ({ navigation, route }) => {
 
                 </View>
 
+                {index == 0 &&
+                    <MenuScreen
+                        onPress={menuPressed}
+                    />
+                }
+
             </ScrollView>
+
+            <TouchableOpacity>
+                <View style={styles.view11}>
+                    <View style={styles.view12}>
+                        <Text style={styles.text13}>
+                            View Cart
+                        </Text>
+                        <View style={styles.view13}>
+                            <Text style={styles.text13}>
+                                0
+                            </Text>
+                        </View>
+
+                    </View>
+                </View>
+            </TouchableOpacity>
+
+
 
         </View>
     )
@@ -139,7 +177,8 @@ const RestaurantHomeScrreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 18
+        paddingTop: 20
+
     },
     view1: {
         width: "100%",
@@ -261,12 +300,22 @@ const styles = StyleSheet.create({
         backgroundColor: colors.buttons,
         height: 50,
         alignContent: 'center',
-        marginBottom: 0
+        marginBottom: 0,
+        justifyContent: 'center'
     },
     view12: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
+    },
+    view13: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderColor: 'white',
+        borderRadius: 7,
+        borderWidth: 1,
+        marginRight: 10
     },
     tet12: {
         padding: 10,
@@ -279,7 +328,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
         color: colors.cardbackground,
-
     },
     tab: {
         paddingTop: 0,
@@ -298,7 +346,29 @@ const styles = StyleSheet.create({
     }, tabStyle: {
         width: SCREEN_WIDTH / 4,
         maxHeight: 45
-    }
+    },
+    view14: {
+        flexDirection: "row",
+        alignItems: "center",
+        padding: 10,
+        backgroundColor: colors.buttons,
+        top: 0,
+        left: 0,
+        right: 0,
+        paddingTop: 25
+    },
+
+    text14: {
+        fontWeight: "bold",
+        marginLeft: 40,
+        color: colors.black,
+        fontSize: 18
+    },
+
+    view15: {
+        marginTop: 5,
+        paddingBottom: 20
+    },
 })
 
 export default RestaurantHomeScrreen

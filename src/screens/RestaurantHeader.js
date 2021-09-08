@@ -55,7 +55,7 @@ const RestaurantHeader = ({ navigation, id }) => {
             <ImageBackground
                 style={styles.container}
                 source={{ uri: restaurantsData[id].images }}
-                imageStyle={styles.image}
+
             >
                 <View style={styles.view1}>
 
@@ -107,10 +107,7 @@ const styles = StyleSheet.create({
     container: {
         height: 150,
     },
-    image: {
-        borderTopLeftRadius: 5,
-        borderTopRightRadius: 5,
-    },
+
     view1: {
         flexDirection: 'row',
         // alignItems: 'baseline',

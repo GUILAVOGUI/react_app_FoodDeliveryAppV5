@@ -7,7 +7,7 @@ import {
     TouchableOpacity,
     ScrollView,
     Pressable,
-    FlatList, Image
+    FlatList, Image, StatusBar
 } from 'react-native';
 import { Icon } from 'react-native-elements';
 import HomeHeader from '../components/HomeHeader';
@@ -32,6 +32,13 @@ const HomeScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container} >
+
+            <StatusBar
+                translucent
+                barStyle="light-content"
+                backgroundColor="rgba(255, 140, 82, 1)"
+            />
+
             <HomeHeader navigation={navigation} />
             <ScrollView
                 stickyHeaderIndices={[0]}
@@ -302,6 +309,7 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingTop: 20,
 
 
     },
